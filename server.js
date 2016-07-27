@@ -10,7 +10,7 @@ app.use(bodyParser());									// bodyParser will parse POST request body into r
 app.use(express.static('./public'));					// Serve our static content
 
 var port = process.env.PORT || 8080
-app.listen(8080, function() {
+app.listen(port, function() {
 	console.log('Listening at http://localhost:8080');
 });
 
