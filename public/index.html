@@ -3,65 +3,57 @@
 <head>
 	<meta charset="utf-8">
 	<title>Contact List App</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
 
 	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/HitListCtrl.js"></script>
-	<script type="text/javascript" src="js/HitCtrl.js"></script>
-	<script type="text/javascript" src="js/BidCtrl.js"></script>
+	<script type="text/javascript" src="js/ContactListCtrl.js"></script>
+	<script type="text/javascript" src="js/ContactCtrl.js"></script>
 </head>
-<body ng-app="contactList">
-	<div class="container" ng-controller="HitListCtrl">
-		<div class="page-header">
-			<h1>Contact List</h1>
-		</div>
-		<div class="panel panel-info">
-			<div class="panel-heading"><b>Contact List</b>
-				<a href ng-click="loadHit()" ><span style="float:right" class="glyphicon glyphicon-plus"></span></a>
-			</div>
-			<div class="row">
-				<div class="col-xs-6" ng-repeat="hit in hits">
-					<div class="panel panel-primary">
-						<div class="panel-heading">{{hit.name}}<a href ng-click="loadHit(hit)"><span style="float:right" class="glyphicon glyphicon-pencil"></span></a></div>
-						<div class="panel-body">
-							<div class="list-group">
-	                        	<div class="list-group-item">
-	                        		<div class="row">
-									    <div class="col-xs-2">
-									        <a href="#">
-									            <img class="img-responsive" src="http://www.permanentmakeup-london.co.uk/images/diffeyebrows/alopecia-no-eyebrows.jpg" alt="">
-									        </a>
-									    </div>
-									    <div class="col-xs-4">
-									        <h4>Occupation: {{hit.occupation}}</h4>
-									        <table class="table">
-									        	<tr>
-											        <td class="col-md-5">Email: {{hit.email}}</td>
-											        <td class="col-md-5">Phone: {{hit.phone}}</td>
-											    </tr>
-											    <tr>
-											        <td>Adress: {{hit.address}}</td>
-											        <td>Relationship: {{hit.relationship}}</td>
-											    </tr>
-											</table>
-									        <p>{{hit.description}}</p>
-									        <a class="btn btn-primary" href="#">More Details <span class="glyphicon glyphicon-chevron-right"></span></a>
-									    </div>
-									    <div ng-if="!hits.length">
-											<td colspan=6 class="text-danger text-center">No Contacts</td>
-										</div>
-									</div>
-	                        	</div>
-	                    	</div>
-						</div>
-						<div class="panel-footer"><a href ng-click="loadHit(hit)"><span class="glyphicon glyphicon-pencil"></span></a></div>
-					</div>
-				</div>
-			</div>
-			
+<body ng-app="contactList" ng-controller="ContactListCtrl">
+	<!--Navigation-->
+	<nav class="navbar navbar-light bg-faded">
+	  <a class="navbar-brand" href="#">Contact List</a>
+	  <ul class="nav navbar-nav">
+	    <li class="nav-item active">
+	      <a href ng-click="loadContact()"><span style="float:right" class="glyphicon glyphicon-plus"></span></a>
+	    </li>
+	    
+	  </ul>
+	  <form class="form-inline" style="float:right">
+	    <input class="form-control" type="text" placeholder="Search">
+	    <button class="btn btn-outline-success" type="submit">Search</button>
+	  </form>
+	</nav>
+	<div class="container">
+
+		<div class="container">
+		    <div class="row">
+		        <div class="col-lg-12 text-center">
+		            <h2 class="section-heading">Contact List</h2>
+		        </div>
+		    </div>
+		    <div class="row">
+		        <div class="col-sm-4" ng-repeat="contact in contacts">
+		            <div class="contact">
+		                <a href ng-click="loadContact(contact)"><img src="http://www.permanentmakeup-london.co.uk/images/diffeyebrows/alopecia-no-eyebrows.jpg" class="img-responsive img-circle" alt=""></a>
+		                <h4>{{contact.name}}</h4>
+		                <p class="text-muted">{{contact.occupation}}</p>
+		                <ul class="list-inline social-buttons">
+		                    <li><a href="#"><span class="glyphicon glyphicon-earphone" area-hidden='true'></span></a>
+		                    </li>
+		                    <li><a href="#"><span class="glyphicon glyphicon-envelope" area-hidden='true'></span></a>
+		                    </li>
+		                    <li><a href="#"><span class="glyphicon glyphicon-home" area-hidden='true'></span></a>
+		                    </li>
+		                </ul>
+		            </div>
+		        </div>
+		        
+		    </div>
 		</div>
 	</div>
 </body>

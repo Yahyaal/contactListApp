@@ -1,0 +1,65 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add Contact</h3>
+</div>
+
+<div class="modal-body">
+	<form name="contactForm">
+		<div class="row">
+		    <div class="col-md-2">
+		        <a href="#">
+		            <img class="img-responsive" src="http://www.permanentmakeup-london.co.uk/images/diffeyebrows/alopecia-no-eyebrows.jpg" alt="">
+		        </a>
+		    </div>
+		    <div class="col-md-10">
+		    	<div class="form-group">
+		    		<label>Name</label>
+		    		<input class="form-control" ng-model="contact.name" required>
+		    	</div>
+		    	<div class="form-group">
+		    		<label>Occupation</label>
+		    		<input class="form-control" ng-model="contact.occupation" required>
+		    	</div>
+		        <table class="table">
+		        	<tr>
+				        <td class="col-md-5">
+				        	<div class="form-group">
+				        		<label>Email</label>
+				        		<input class="form-control" ng-model="contact.email" required>
+				        	</div>
+				        </td>
+				        <td class="col-md-5">
+				        	<div class="form-group">
+				        		<label>Phone</label>
+				        		<input class="form-control" ng-model="contact.phone" required>
+				        	</div>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td>
+				        	<div class="form-group">
+				        		<label>Adress: </label>
+				        		<input class="form-control" ng-model="contact.address" required>
+				        	</div>
+				        </td>
+				        <td>
+				        	<div class="form-group">
+				        		<label>Relationship</label>
+				        		<input class="form-control" ng-model="contact.relationship" required>
+				        	</div>
+				        </td>
+				    </tr>
+				</table>
+		        <div class="form-group">
+		        	<label>Description</label>
+		        	<textarea class="form-control" ng-model="contact.description" required></textarea>
+		        </div>
+		    </div>
+		</div>
+	</form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-danger pull-left" type="button" ng-click="delete()" ng-if="contact._id">Delete</button>
+    <button class="btn btn-primary" type="button" ng-click="save()" ng-disabled="!contactForm.$valid">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
