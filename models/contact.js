@@ -8,4 +8,5 @@ module.exports = mongoose.model('Contact', {									// Create a model called Hi
 	phone: String,
 	relationship: String,
 	description: String,
+	img: String,
 });
